@@ -1,0 +1,46 @@
+# Dependencias y paquetes
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Archivos de sistema
+.DS_Store
+.env
+.env.local
+.env.*.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.sublime-project
+.sublime-workspace
+
+# Build outputs
+dist/
+build/
+*.min.css
+*.min.js
+
+# Logs
+logs/
+*.log
+
+# Cache
+.cache/
+.next/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Archivos temporales
+temp/
+tmp/
+*.tmp
+
+# Otros
+.DS_Store
+Thumbs.db

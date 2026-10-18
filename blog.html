@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Blog ServiChile - Educación sobre protección patrimonial y fraude en Chile">
+  <meta name="theme-color" content="#0f4c81">
+  <title>Blog - ServiChile</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230f4c81'/%3E%3Ctext x='50' y='65' font-size='45' text-anchor='middle' fill='white' font-family='Arial'%3ES%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: var(--space-lg);
+      margin-bottom: var(--space-xl);
+    }
+
+    .blog-card {
+      background-color: #ffffff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: all 0.2s ease;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .blog-card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .blog-card-header {
+      background: linear-gradient(135deg, var(--color-secondary) 0%, rgba(196, 92, 0, 0.05) 100%);
+      padding: var(--space-lg);
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .blog-category {
+      display: inline-block;
+      background-color: var(--color-accent);
+      color: #ffffff;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: var(--space-md);
+      width: fit-content;
+    }
+
+    .blog-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin: 0 0 var(--space-md);
+      line-height: 1.4;
+    }
+
+    .blog-excerpt {
+      color: var(--color-muted);
+      font-size: 0.95rem;
+      margin: 0 0 var(--space-md);
+      line-height: 1.6;
+    }
+
+    .blog-footer {
+      padding: var(--space-md) var(--space-lg);
+      background-color: #f9f9f9;
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .blog-date {
+      color: var(--color-muted);
+      font-size: 0.85rem;
+    }
+
+    .blog-readtime {
+      color: var(--color-accent);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .search-box {
+      margin-bottom: var(--space-xl);
+    }
+
+    .search-input {
+      width: 100%;
+      padding: var(--space-md);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      font-family: var(--font-base);
+      font-size: var(--font-size-base);
+      transition: all 0.2s ease;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.1);
+    }
+
+    .filters {
+      display: flex;
+      gap: var(--space-md);
+      margin-bottom: var(--space-lg);
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--color-border);
+      background-color: #ffffff;
+      color: var(--color-text);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s ease;
+    }
+
+    .filter-btn.active {
+      background-color: var(--color-accent);
+      color: #ffffff;
+      border-color: var(--color-accent);
+    }
+
+    .filter-btn:hover {
+      border-color: var(--color-accent);
+    }
+
+    .newsletter-box {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+      color: #ffffff;
+      padding: var(--space-xl);
+      border-radius: var(--radius);
+      text-align: center;
+      margin-bottom: var(--space-xl);
+    }
+
+    .newsletter-box h3 {
+      margin: 0 0 var(--space-md);
+      font-size: 1.5rem;
+    }
+
+    .newsletter-box p {
+      margin: 0 0 var(--space-lg);
+      opacity: 0.95;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: var(--space-md);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: var(--space-sm) var(--space-md);
+      border: none;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-base);
+      font-size: 0.95rem;
+    }
+
+    .newsletter-btn {
+      padding: var(--space-sm) var(--space-lg);
+      background-color: var(--color-accent);
+      color: #ffffff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .newsletter-btn:hover {
+      background-color: var(--color-accent-dark);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <nav class="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span style="display: inline-flex; align-items: center; justify-content: center; width: 1.8rem; height: 1.8rem; background-color: #ffffff; color: #0f4c81; border-radius: 50%; font-weight: 700; font-size: 1rem;">S</span>
+        ServiChile
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="soluciones.html">Soluciones</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="precios.html">Precios</a></li>
+        <li><a href="contacto.html" class="btn-cta-small">Contactar</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  
+  <section class="hero" style="padding: var(--space-lg) var(--space-md);">
+    <div class="container" style="grid-template-columns: 1fr;">
+      <div class="hero-content">
+        <h1>Blog ServiChile</h1>
+        <p class="hero-subtitle">Educación, alertas y tips para proteger tu patrimonio en Chile.</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section>
+    <div class="container">
+      <div class="newsletter-box">
+        <h3>Recibe tips semanales</h3>
+        <p>Suscríbete a nuestro newsletter y entérate primero de estafas nuevas, cambios en beneficios y estrategias de protección.</p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+          <input type="email" class="newsletter-input" placeholder="tu@email.com" required>
+          <button type="submit" class="newsletter-btn">Suscribirse</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  
+  <section>
+    <div class="container">
+      
+      <div class="search-box">
+        <input type="text" id="searchInput" class="search-input" placeholder="Buscar artículos..." onkeyup="filterBlog()">
+      </div>
+
+      
+      <div class="filters">
+        <button class="filter-btn active" onclick="filterByCategory('all')">Todos</button>
+        <button class="filter-btn" onclick="filterByCategory('estafas')">Estafas Comunes</button>
+        <button class="filter-btn" onclick="filterByCategory('derechos')">Tus Derechos</button>
+        <button class="filter-btn" onclick="filterByCategory('tutoriales')">Tutoriales</button>
+        <button class="filter-btn" onclick="filterByCategory('casos')">Casos Reales</button>
+      </div>
+
+      
+      <div id="blogGrid" class="blog-grid"></div>
+    </div>
+  </section>
+
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-section">
+        <h4>ServiChile</h4>
+        <p>Seguridad patrimonial y verificación oficial de identidad en Chile.</p>
+        <div class="footer-social">
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-x"></i></a>
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="productos.html">ServiChile IA</a></li>
+          <li><a href="productos.html">ServiChile API</a></li>
+          <li><a href="productos.html">Sintetizador Legal</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Recursos</h4>
+        <ul>
+          <li><a href="soluciones.html">Soluciones</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Términos de Servicio</a></li>
+          <li><a href="#">Política de Privacidad</a></li>
+          <li><a href="#">Cumplimiento LGPD</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ServiChile. Todos los derechos reservados.</p>
+      <p style="margin-top: var(--space-sm);">Cumplimos con la Ley N° 21.719 de Protección de Datos Personales en Chile.</p>
+    </div>
+  </footer>
+
+  <script>
+    const blogPosts = [
+      {
+        id: 1,
+        title: "Cómo Reconocer una Estafa Telefónica",
+        excerpt: "Aprende a identificar los signos de alerta y cómo protegerte de engaños comunes en llamadas no solicitadas.",
+        category: "estafas",
+        date: "2024-10-15",
+        readtime: "5 min"
+      },
+      {
+        id: 2,
+        title: "Ley 21.719 de Protección de Datos en Chile",
+        excerpt: "Entérate qué derechos tienes sobre tus datos personales y cómo ejercerlos correctamente.",
+        category: "derechos",
+        date: "2024-10-12",
+        readtime: "6 min"
+      },
+      {
+        id: 3,
+        title: "Cómo Consultar tu RUT en el Registro Civil",
+        excerpt: "Guía paso a paso para obtener tu información oficial del Registro Civil chileno de forma segura.",
+        category: "tutoriales",
+        date: "2024-10-10",
+        readtime: "4 min"
+      },
+      {
+        id: 4,
+        title: "Estafas de Suplantación de Identidad",
+        excerpt: "¿Descubriste que alguien usa tu identidad? Aquí está todo lo que debes hacer para protegerte.",
+        category: "estafas",
+        date: "2024-10-08",
+        readtime: "7 min"
+      },
+      {
+        id: 5,
+        title: "Derecho a Solicitar tus Datos Personales",
+        excerpt: "Cómo presentar una solicitud de acceso a datos ante instituciones públicas y privadas.",
+        category: "derechos",
+        date: "2024-10-05",
+        readtime: "5 min"
+      },
+      {
+        id: 6,
+        title: "Caso: Cómo Detectamos Fraude en 48 Horas",
+        excerpt: "La historia de María, quién detectó fraude gracias a ServiChile y pudo actuar a tiempo.",
+        category: "casos",
+        date: "2024-10-02",
+        readtime: "4 min"
+      },
+      {
+        id: 7,
+        title: "Guía: Verificar Beneficios de FONASA en Chile",
+        excerpt: "Cómo consultar si eres beneficiario de programas de subsidio del gobierno.",
+        category: "tutoriales",
+        date: "2024-09-28",
+        readtime: "5 min"
+      },
+      {
+        id: 8,
+        title: "Caso: Municipio Detecta $12M en Fraude",
+        excerpt: "Cómo una municipalidad chilena usó ServiChile para auditar 50k beneficiarios en 3 meses.",
+        category: "casos",
+        date: "2024-09-25",
+        readtime: "6 min"
+      }
+    ];
+
+    let currentFilter = 'all';
+
+    function renderBlog(posts) {
+      const grid = document.getElementById('blogGrid');
+      grid.innerHTML = posts.map(post => `
+        <div class="blog-card" onclick="goToPost(${post.id})">
+          <div class="blog-card-header">
+            <div>
+              <span class="blog-category">${getCategoryLabel(post.category)}</span>
+              <h3 class="blog-title">${post.title}</h3>
+              <p class="blog-excerpt">${post.excerpt}</p>
+            </div>
+          </div>
+          <div class="blog-footer">
+            <span class="blog-date">${formatDate(post.date)}</span>
+            <span class="blog-readtime">${post.readtime}</span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function getCategoryLabel(cat) {
+      const labels = {
+        estafas: 'Estafas Comunes',
+        derechos: 'Tus Derechos',
+        tutoriales: 'Tutoriales',
+        casos: 'Casos Reales'
+      };
+      return labels[cat] || cat;
+    }
+
+    function formatDate(date) {
+      const d = new Date(date);
+      return d.toLocaleDateString('es-CL', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    function filterByCategory(cat) {
+      currentFilter = cat;
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      const filtered = cat === 'all' ? blogPosts : blogPosts.filter(p => p.category === cat);
+      renderBlog(filtered);
+    }
+
+    function filterBlog() {
+      const search = document.getElementById('searchInput').value.toLowerCase();
+      const filtered = blogPosts.filter(p => 
+        (currentFilter === 'all' || p.category === currentFilter) &&
+        (p.title.toLowerCase().includes(search) || p.excerpt.toLowerCase().includes(search))
+      );
+      renderBlog(filtered);
+    }
+
+    function goToPost(id) {
+      alert(`Artículo #${id} - Este es un placeholder. Aquí iría el contenido completo del post.`);
+    }
+
+    function handleNewsletter(e) {
+      e.preventDefault();
+      alert('¡Gracias por suscribirte! Confirma tu email para continuar.');
+      e.target.reset();
+    }
+
+    // Initial render
+    renderBlog(blogPosts);
+  </script>
+</body>
+</html>

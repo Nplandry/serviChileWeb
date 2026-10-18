@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contacto ServiChile - Solicita una demo o consulta sobre nuestros servicios">
+  <meta name="theme-color" content="#0f4c81">
+  <title>Contacto - ServiChile</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%230f4c81'/%3E%3Ctext x='50' y='65' font-size='45' text-anchor='middle' fill='white' font-family='Arial'%3ES%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  
+  <nav class="navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <span style="display: inline-flex; align-items: center; justify-content: center; width: 1.8rem; height: 1.8rem; background-color: #ffffff; color: #0f4c81; border-radius: 50%; font-weight: 700; font-size: 1rem;">S</span>
+        ServiChile
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="productos.html">Productos</a></li>
+        <li><a href="soluciones.html">Soluciones</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="precios.html">Precios</a></li>
+        <li><a href="contacto.html" class="active btn-cta-small">Contactar</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  
+  <section class="hero" style="padding: var(--space-lg) var(--space-md);">
+    <div class="container" style="grid-template-columns: 1fr;">
+      <div class="hero-content">
+        <h1>Contacto</h1>
+        <p class="hero-subtitle">¿Preguntas o listo para comenzar? Te respondemos en menos de 24 horas.</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section>
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-xl);">
+        
+        <div>
+          <h2 style="color: var(--color-primary); margin-bottom: var(--space-lg);">Información de Contacto</h2>
+          
+          <div style="margin-bottom: var(--space-lg);">
+            <h3 style="color: var(--color-accent); margin-bottom: var(--space-md);"><i class="fas fa-envelope"></i> Email</h3>
+            <p style="margin: 0;">
+              <a href="mailto:info@servichile.cl" style="color: var(--color-primary); text-decoration: none; font-weight: 600;">info@servichile.cl</a>
+            </p>
+          </div>
+
+          <div style="margin-bottom: var(--space-lg);">
+            <h3 style="color: var(--color-accent); margin-bottom: var(--space-md);"><i class="fas fa-phone"></i> Teléfono</h3>
+            <p style="margin: 0;">
+              <a href="tel:+56912345678" style="color: var(--color-primary); text-decoration: none; font-weight: 600;">+56 9 1234 5678</a>
+            </p>
+          </div>
+
+          <div style="margin-bottom: var(--space-lg);">
+            <h3 style="color: var(--color-accent); margin-bottom: var(--space-md);"><i class="fas fa-building"></i> Oficina</h3>
+            <p style="margin: 0; color: var(--color-muted);">
+              Providencia<br>
+              Santiago, Chile
+            </p>
+          </div>
+
+          <div style="margin-bottom: var(--space-lg);">
+            <h3 style="color: var(--color-accent); margin-bottom: var(--space-md);"><i class="fas fa-clock"></i> Horario de Atención</h3>
+            <p style="margin: 0; color: var(--color-muted);">
+              Lunes a viernes de 9:00 a 18:00<br>
+              Sábados de 10:00 a 14:00<br>
+              <span style="font-size: 0.9rem;">Horario de Chile (UTC-3)</span>
+            </p>
+          </div>
+
+          <div style="padding: var(--space-lg); background-color: var(--color-secondary); border-radius: var(--radius);">
+            <h3 style="color: var(--color-primary); margin-top: 0; margin-bottom: var(--space-md);">Equipo ServiChile</h3>
+            <p style="margin: 0; color: var(--color-muted); font-size: 0.9rem;">
+              Nuestro equipo de especialistas en compliance, tecnología y servicio al cliente está listo para ayudarte.
+            </p>
+          </div>
+        </div>
+
+        
+        <div>
+          <h2 style="color: var(--color-primary); margin-bottom: var(--space-lg);">Envíanos tu Mensaje</h2>
+          
+          <form id="contactForm" style="display: flex; flex-direction: column; gap: var(--space-md);">
+            <div class="field">
+              <label class="field__label" for="name">Nombre *</label>
+              <input id="name" class="field__input" type="text" name="name" required placeholder="Tu nombre completo">
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="email">Correo Electrónico *</label>
+              <input id="email" class="field__input" type="email" name="email" required placeholder="tu@email.com">
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="phone">Teléfono</label>
+              <input id="phone" class="field__input" type="tel" name="phone" placeholder="+56 9 1234 5678">
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="subject">Asunto *</label>
+              <select id="subject" class="field__input" name="subject" required>
+                <option value="">Elige un tema</option>
+                <option value="demo">Solicitar demostración</option>
+                <option value="pricing">Información de precios</option>
+                <option value="integration">Integración técnica</option>
+                <option value="support">Soporte y ayuda</option>
+                <option value="other">Otro tema</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label class="field__label" for="message">Mensaje *</label>
+              <textarea id="message" class="field__textarea" name="message" required placeholder="Cuéntanos qué necesitas..." minlength="10" maxlength="1000"></textarea>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: var(--space-md); margin-bottom: var(--space-md);">
+              <input id="privacy" type="checkbox" name="privacy" required style="width: 1.2rem; height: 1.2rem; cursor: pointer;">
+              <label for="privacy" style="margin: 0; color: var(--color-muted); font-size: 0.9rem; cursor: pointer;">
+                Acepto la <a href="#" style="color: var(--color-accent); text-decoration: none;">Política de Privacidad</a> de ServiChile
+              </label>
+            </div>
+
+            <button type="submit" class="submit-btn">Enviar Mensaje</button>
+            <p id="formStatus" class="error-text" role="alert" aria-live="assertive" style="display: none;"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="alt">
+    <div class="container">
+      <div class="section-header">
+        <h2>¿Por Qué Elegirnos?</h2>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-check-circle"></i></div>
+          <h3 class="card-title">Datos Oficiales</h3>
+          <p class="card-text">Conectados directamente con SII, Registro Civil y Poder Judicial. No datos de terceros.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-bolt"></i></div>
+          <h3 class="card-title">Instantáneo</h3>
+          <p class="card-text">Respuestas en &lt;1 segundo. No esperes horas de procesamiento manual.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-lock"></i></div>
+          <h3 class="card-title">Seguro</h3>
+          <p class="card-text">Cumplimiento total de Ley 21.719. Encriptación end-to-end en todos los datos.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-dollar-sign"></i></div>
+          <h3 class="card-title">Transparente</h3>
+          <p class="card-text">Sin cargos ocultos. Ves exactamente qué pagas y por qué antes de comenzar.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-handshake"></i></div>
+          <h3 class="card-title">Soporte Dedicado</h3>
+          <p class="card-text">Equipo disponible 24/7 en planes Enterprise. Respuesta en menos de 1 hora.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+          <h3 class="card-title">Escalable</h3>
+          <p class="card-text">Comienza pequeño y crece sin límites. Infraestructura lista para millones de consultas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section>
+    <div class="container">
+      <div class="section-header">
+        <h2>Lo Que Dicen Nuestros Clientes</h2>
+      </div>
+
+      <div class="grid">
+        <div class="card" style="border-left: 4px solid var(--color-accent);">
+          <p style="margin: 0 0 var(--space-md); color: var(--color-muted); font-size: 0.95rem; line-height: 1.6;">
+            "Implementamos ServiChile en nuestro municipio y detectamos $12M en beneficiarios fraudulentos en los primeros 3 meses. Una herramienta imprescindible."
+          </p>
+          <strong style="color: var(--color-primary);">Patricia García</strong><br>
+          <span style="color: var(--color-muted); font-size: 0.9rem;">Directora de Beneficios, Municipalidad</span>
+        </div>
+
+        <div class="card" style="border-left: 4px solid var(--color-accent);">
+          <p style="margin: 0 0 var(--space-md); color: var(--color-muted); font-size: 0.95rem; line-height: 1.6;">
+            "Como abogado, ServiChile me ahorra horas en investigación preliminar. Ahora tengo un reporte completo en segundos. Imprescindible."
+          </p>
+          <strong style="color: var(--color-primary);">Roberto Flores</strong><br>
+          <span style="color: var(--color-muted); font-size: 0.9rem;">Abogado Litigante, Antofagasta</span>
+        </div>
+
+        <div class="card" style="border-left: 4px solid var(--color-accent);">
+          <p style="margin: 0 0 var(--space-md); color: var(--color-muted); font-size: 0.95rem; line-height: 1.6;">
+            "Protegí a mi papá de una estafa gracias a ServiChile. Descubrimos que alguien estaba usando su identidad para solicitar créditos. Hoy está tranquilo."
+          </p>
+          <strong style="color: var(--color-primary);">Carla Moreno</strong><br>
+          <span style="color: var(--color-muted); font-size: 0.9rem;">Usuario Individual</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-section">
+        <h4>ServiChile</h4>
+        <p>Seguridad patrimonial y verificación oficial de identidad en Chile.</p>
+        <div class="footer-social">
+          <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://twitter.com" target="_blank" rel="noopener" aria-label="Twitter"><i class="fab fa-x"></i></a>
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Productos</h4>
+        <ul>
+          <li><a href="productos.html">ServiChile IA</a></li>
+          <li><a href="productos.html">ServiChile API</a></li>
+          <li><a href="productos.html">Sintetizador Legal</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Recursos</h4>
+        <ul>
+          <li><a href="soluciones.html">Soluciones</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Términos de Servicio</a></li>
+          <li><a href="#">Política de Privacidad</a></li>
+          <li><a href="#">Cumplimiento LGPD</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ServiChile. Todos los derechos reservados.</p>
+      <p style="margin-top: var(--space-sm);">Cumplimos con la Ley N° 21.719 de Protección de Datos Personales en Chile.</p>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+
+      // Validate
+      if (!data.name || !data.email || !data.message || !data.privacy) {
+        formStatus.textContent = 'Por favor completa todos los campos requeridos.';
+        formStatus.style.display = 'block';
+        formStatus.style.color = 'var(--color-error)';
+        return;
+      }
+
+      // Show success message
+      formStatus.textContent = '&check; Mensaje enviado exitosamente. Te contactaremos pronto.';
+      formStatus.style.display = 'block';
+      formStatus.style.color = 'var(--color-success)';
+      form.reset();
+
+      // Clear message after 5 seconds
+      setTimeout(() => {
+        formStatus.style.display = 'none';
+      }, 5000);
+    });
+  </script>
+</body>
+</html>
