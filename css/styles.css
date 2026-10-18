@@ -23,7 +23,7 @@
   --font-size-xl: 1.5rem;
   --space-xs: 0.5rem;
   --space-sm: 0.25rem;
-  --space-md: 1rem;
+  --space-md: 0.2rem;
   --space-lg: 1.25rem;
   --space-xl: 1.75rem;
   --radius: 0.75rem;
@@ -176,43 +176,56 @@ body {
 
 @media (max-width: 640px) {
   .navbar {
-    padding: var(--space-xs) var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
   }
 
   .navbar .container {
     flex-wrap: wrap;
-    gap: var(--space-xs);
-    justify-content: space-between;
+    gap: var(--space-md);
+    justify-content: center;
+    align-items: center;
   }
 
   .navbar-brand {
-    font-size: 1rem;
+    font-size: 1.1rem;
     order: 1;
-    flex-basis: auto;
+    flex-basis: 100%;
+    text-align: center;
+    padding-bottom: var(--space-xs);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
   .nav-links {
     order: 2;
     flex-basis: 100%;
-    justify-content: flex-start;
-    gap: var(--space-xs);
-    margin-top: var(--space-xs);
+    justify-content: center;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+    flex-wrap: wrap;
   }
 
   .nav-links li {
-    flex: 1;
+    flex: 0 1 auto;
     text-align: center;
   }
 
   .nav-links a {
-    font-size: 0.7rem;
-    padding: 4px 4px;
-    display: block;
+    font-size: 0.85rem;
+    padding: var(--space-xs) var(--space-sm);
+    display: inline-block;
+    min-height: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .btn-cta-small {
-    padding: 4px 6px !important;
-    font-size: 0.7rem;
+    padding: var(--space-xs) var(--space-md) !important;
+    font-size: 0.85rem;
+    min-height: 2.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
