@@ -44,3 +44,4 @@ tmp/
 # Otros
 .DS_Store
 Thumbs.db
+.vercel
