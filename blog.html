@@ -198,6 +198,67 @@
       .blog-grid {
         grid-template-columns: 1fr;
       }
+
+      .newsletter-box h3 {
+        font-size: 1.25rem;
+      }
+
+      .blog-title {
+        font-size: 1.1rem;
+      }
+
+      .filters {
+        gap: var(--space-sm);
+      }
+
+      .filter-btn {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.8rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .blog-grid {
+        gap: var(--space-md);
+      }
+
+      .blog-card-header {
+        padding: var(--space-md);
+      }
+
+      .blog-title {
+        font-size: 1rem;
+        margin-bottom: var(--space-sm);
+      }
+
+      .blog-excerpt {
+        font-size: 0.9rem;
+        margin-bottom: var(--space-sm);
+      }
+
+      .blog-footer {
+        flex-direction: column;
+        gap: var(--space-sm);
+        align-items: flex-start;
+      }
+
+      .filters {
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .filter-btn {
+        font-size: 0.8rem;
+        padding: 0.35rem 0.7rem;
+      }
+
+      .newsletter-input {
+        font-size: 16px; /* Previene zoom en iOS */
+      }
+
+      .search-input {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
